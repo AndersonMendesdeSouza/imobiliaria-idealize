@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     document.title = property
-      ? `${property.title} | Richardson Paula`
-      : 'Richardson Paula | Seu próximo capítulo começa aqui'
+      ? `${property.title} | Idealize Negócios Imobiliários`
+      : 'Idealize | Seu próximo imóvel em Buriti Alegre'
 
     const frame = window.requestAnimationFrame(() => {
       if (hash && !hash.startsWith('#/')) {
@@ -44,7 +44,7 @@ function App() {
           <span className="eyebrow">Imóvel não encontrado</span>
           <h1>Vamos encontrar outro lugar?</h1>
           <p>Este anúncio não está disponível. Conheça os outros imóveis da nossa seleção.</p>
-          <a className="button button-navy" href="#imoveis">Explorar imóveis</a>
+          <a className="button button-dark" href="#imoveis">Explorar imóveis</a>
         </main>
       )
     }

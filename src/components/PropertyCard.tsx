@@ -20,21 +20,16 @@ export function PropertyCard({ property }: { property: Property }) {
             alt={cover.alt}
             loading="lazy"
           />
-          <span className="category-badge">{isHouse ? 'Casa' : 'Lote'}</span>
-          <span className="photo-count"><Icon name="photos" />{property.images.length}</span>
-          <span className="price-badge">
-            {formatPrice(property.price)}
-            {property.purpose === 'rent' && <small>/mês</small>}
-          </span>
-        </div>
-
-        <div className="property-card-body">
           <span className={`purpose-badge ${property.purpose}`}>
             {property.purpose === 'sale' ? 'À venda' : 'Para alugar'}
           </span>
+          <span className="photo-count"><Icon name="photos" />{property.images.length}</span>
+        </div>
+
+        <div className="property-card-body">
+          <span className="property-category">{isHouse ? 'Casa' : 'Lote residencial'} · Ref. {property.reference}</span>
           <h3>{property.title}</h3>
-          <p className="property-neighborhood">{property.neighborhood}</p>
-          <p className="property-location"><Icon name="pin" />{property.city}</p>
+          <p className="property-location"><Icon name="pin" />{property.neighborhood} · {property.city}</p>
 
           <div className="property-specs">
             <div>
@@ -65,7 +60,10 @@ export function PropertyCard({ property }: { property: Property }) {
               </>
             )}
           </div>
-          <div className="card-action">Conhecer imóvel<Icon name="arrow" /></div>
+          <div className="card-footer">
+            <div className="card-price">{formatPrice(property.price)}{property.purpose === 'rent' && <small>/mês</small>}</div>
+            <span className="card-action" aria-hidden="true"><Icon name="arrow" /></span>
+          </div>
         </div>
       </a>
     </article>

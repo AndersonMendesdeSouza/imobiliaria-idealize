@@ -15,7 +15,7 @@ export function Header() {
           <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre nós</a>
           <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
         </nav>
-        <a className="button header-contact" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Vamos conversar</a>
+        <a className="button header-contact" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com a Idealize</a>
         <button className="icon-button menu-toggle" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'close' : 'menu'} /></button>
       </div>
     </header>
@@ -26,11 +26,11 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="container footer-top">
-        <div><Brand /><p>Conectando pessoas, imóveis<br />e novos começos.</p></div>
-        <div className="footer-links"><span>Explore</span><a href="#imoveis">Encontre seu imóvel</a><a href="#sobre">Conheça a Richardson Paula</a></div>
-        <div className="footer-links"><span>Estamos por perto</span><p>Buriti Alegre e Lago das Brisas · GO</p><a href={contact.instagram} target="_blank" rel="noreferrer"><Icon name="instagram" />@rplagodasbrisas</a></div>
+        <div><Brand /><p>Seu melhor negócio começa<br />com uma boa escolha.</p></div>
+        <div className="footer-links"><span>Explore</span><a href="#imoveis">Encontre seu imóvel</a><a href="#sobre">Conheça a Idealize</a><a href="#contato">Entre em contato</a></div>
+        <div className="footer-links"><span>Estamos por perto</span><p>Centro · Buriti Alegre, GO</p><a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="phone" />{contact.phone}</a><a href={contact.instagram} target="_blank" rel="noreferrer"><Icon name="instagram" />Idealize no Instagram</a></div>
       </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Richardson Paula. Todos os direitos reservados.</span><span>Seu novo começo tem endereço.</span></div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Idealize Negócios Imobiliários.</span><span>Proposta demonstrativa · Imóveis e valores de exemplo.</span></div>
     </footer>
   )
 }

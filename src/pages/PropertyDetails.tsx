@@ -12,40 +12,20 @@ export function PropertyDetails({ property }: { property: Property }) {
 
   return (
     <main id="conteudo" tabIndex={-1} className="details-page container">
-      <a className="text-link detail-back" href="#imoveis">
-        <Icon name="arrow" className="rotate" />
-        Voltar
-      </a>
-
-      <div className="detail-heading">
-        <div>
-          <div className="detail-labels">
-            <span className={`purpose-badge ${property.purpose}`}>
-              {isRent ? 'Para alugar' : 'À venda'}
-            </span>
-            <span className="detail-category">{isHouse ? 'Casa' : 'Lote residencial'}</span>
-          </div>
-          <h1>{property.title}</h1>
-          <p className="detail-location">
-            <Icon name="pin" />
-            {property.neighborhood} · {property.city}
-          </p>
-        </div>
-        <span className="reference">Ref. {property.reference}</span>
-      </div>
-
-      <PhotoGallery images={property.images} title={property.title} />
-      {property.imageSource && (
-        <p className="image-credit">
-          Imagens ilustrativas de outra região · Fonte:{' '}
-          <a href={property.imageSource.url} target="_blank" rel="noreferrer">
-            {property.imageSource.label}
-          </a>
-        </p>
-      )}
+      <nav className="detail-breadcrumb" aria-label="Localização na página">
+        <a className="detail-back" href="#imoveis"><Icon name="arrow" className="rotate" />Voltar aos imóveis</a>
+        <span>Idealize <span aria-hidden="true">/</span> {isHouse ? 'Casas' : 'Lotes'} <span aria-hidden="true">/</span> {property.reference}</span>
+      </nav>
 
       <div className="detail-content">
         <div className="detail-main">
+          <PhotoGallery images={property.images} title={property.title} />
+          {property.imageSource && (
+            <p className="image-credit">
+              Imagens ilustrativas de outra região · Fonte:{' '}
+              <a href={property.imageSource.url} target="_blank" rel="noreferrer">{property.imageSource.label}</a>
+            </p>
+          )}
           <div className="detail-specs">
             <div>
               <Icon name="area" />
@@ -87,8 +67,8 @@ export function PropertyDetails({ property }: { property: Property }) {
           </div>
 
           <section className="detail-description" aria-labelledby="description-title">
-            <span className="eyebrow">Conheça seu próximo {isHouse ? 'lar' : 'endereço'}</span>
-            <h2 id="description-title">Espaço para uma nova história.</h2>
+            <span className="eyebrow">Conheça o imóvel</span>
+            <h2 id="description-title">Imagine seus planos aqui.</h2>
             <p>{property.description}</p>
           </section>
 
@@ -107,15 +87,23 @@ export function PropertyDetails({ property }: { property: Property }) {
           <section className="location-box" aria-label="Localização aproximada">
             <span className="location-box-icon"><Icon name="pin" /></span>
             <div>
-              <h3>Uma boa história começa pelo lugar.</h3>
+              <h3>Conheça a região</h3>
               <p>{property.neighborhood} · {property.city}</p>
               <small>Localização de exemplo. Endereço completo sob consulta.</small>
             </div>
           </section>
         </div>
 
-        <aside className="price-panel" aria-label="Preço e contato">
-          <span className="eyebrow">Imagine as possibilidades</span>
+        <aside className="price-panel" aria-label="Resumo do imóvel e contato">
+          <div className="detail-labels">
+            <span className={`purpose-badge ${property.purpose}`}>{isRent ? 'Para alugar' : 'À venda'}</span>
+            <span className="detail-category">{isHouse ? 'Casa' : 'Lote residencial'}</span>
+          </div>
+          <div className="detail-heading">
+            <h1>{property.title}</h1>
+            <p className="detail-location"><Icon name="pin" />{property.neighborhood} · {property.city}</p>
+            <span className="reference">Referência {property.reference}</span>
+          </div>
           <span className="price-label">{isRent ? 'Aluguel mensal' : 'Valor do imóvel'}</span>
           <div className="detail-price">
             {formatPrice(property.price)}
@@ -125,7 +113,7 @@ export function PropertyDetails({ property }: { property: Property }) {
             <Icon name="house" />
             <span>{isRent ? 'Consulte as condições de locação' : 'Consulte as condições de compra'}</span>
           </div>
-          <a className="button button-navy" href={whatsappUrl} target="_blank" rel="noreferrer">
+          <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
             <Icon name="whatsapp" />
             Tenho interesse
             <Icon name="arrow" />
@@ -136,6 +124,7 @@ export function PropertyDetails({ property }: { property: Property }) {
           <div className="advisor">
             <Brand />
             <span>Atendimento em Buriti Alegre e região</span>
+            <a href={`tel:+55${contact.phone.replace(/\D/g, '')}`}>{contact.phone}</a>
           </div>
           <p className="demo-disclaimer">
             Anúncio demonstrativo. Preço, localização e características são fictícios.
