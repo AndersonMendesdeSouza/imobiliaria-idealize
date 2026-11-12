@@ -5,17 +5,19 @@ import { contact } from '../data/properties'
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const isHome = !window.location.hash || window.location.hash === '#/'
   return (
     <header className="site-header">
       <div className="container header-inner">
         <Brand />
         <nav className={menuOpen ? 'header-nav is-open' : 'header-nav'} id="main-navigation" aria-label="Navegação principal">
-          <a href="#/" onClick={() => setMenuOpen(false)}>Início</a>
+          <a href="#/" aria-current={isHome ? 'page' : undefined} onClick={() => setMenuOpen(false)}>Início</a>
           <a href="#imoveis" onClick={() => setMenuOpen(false)}>Imóveis</a>
+          <a href="#servicos" onClick={() => setMenuOpen(false)}>Serviços</a>
           <a href="#sobre" onClick={() => setMenuOpen(false)}>Sobre nós</a>
           <a href="#contato" onClick={() => setMenuOpen(false)}>Contato</a>
         </nav>
-        <a className="button header-contact" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com a Idealize</a>
+        <a className="button header-contact" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale conosco</a>
         <button className="icon-button menu-toggle" aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'} aria-expanded={menuOpen} aria-controls="main-navigation" onClick={() => setMenuOpen(!menuOpen)}><Icon name={menuOpen ? 'close' : 'menu'} /></button>
       </div>
     </header>

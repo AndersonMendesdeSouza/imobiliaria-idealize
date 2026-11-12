@@ -2,7 +2,7 @@ import { Icon } from '../components/Icon'
 import { PropertyCarousel } from '../components/PropertyCarousel'
 import { contact, properties } from '../data/properties'
 import type { PropertyCategory } from '../data/properties'
-import heroImage from '../assets/casas/casa1/image.png'
+import heroImage from '../assets/hero-idealize.jpg'
 import aboutImage from '../assets/casas/casa2/image copy.png'
 
 export type PropertyFilter = 'all' | PropertyCategory
@@ -20,30 +20,26 @@ export function Home({ filter, onFilterChange }: HomeProps) {
   return (
     <main id="conteudo" tabIndex={-1}>
       <section className="hero" aria-labelledby="hero-title">
-        <img className="hero-image" src={heroImage} alt="Fachada de casa térrea com portão de garagem e telhado cerâmico" fetchPriority="high" />
+        <img className="hero-image" src={heroImage} alt="Imagem ilustrativa de uma casa moderna ao entardecer, com jardim e iluminação acolhedora" fetchPriority="high" />
         <div className="hero-shade" />
         <div className="container hero-inner">
           <div className="hero-content">
-            <span className="hero-eyebrow"><span />Buriti Alegre e região · GO</span>
-            <h1 id="hero-title">Você imagina.<br />A gente ajuda<br />a <em>realizar.</em></h1>
-            <p>Uma casa para chamar de sua. Um terreno para tirar os planos do papel. Encontre seu próximo passo com a Idealize.</p>
+            <span className="hero-eyebrow"><Icon name="pin" />Buriti Alegre e região · GO</span>
+            <h1 id="hero-title">Seu próximo lar<br />começa <em>aqui</em>.</h1>
+            <p>Encontre o imóvel ideal para viver,<br className="hero-description-break" /> investir e realizar seus sonhos.</p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#imoveis">Explorar imóveis<Icon name="arrow" /></a>
-              <a className="hero-contact-link" href={contact.whatsapp} target="_blank" rel="noreferrer">Vamos conversar<Icon name="whatsapp" /></a>
+              <a className="button button-primary" href="#imoveis"><Icon name="house" />Explorar imóveis<Icon name="arrow" /></a>
+              <a className="button hero-contact-link" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com um corretor</a>
             </div>
-            <div className="hero-footnote"><Icon name="key" /><span>Comprar, alugar ou investir. Idealize.</span></div>
           </div>
-          <div className="hero-caption"><Icon name="pin" /><div>Espaço para viver melhor<span>Buriti Alegre · Lago das Brisas</span></div></div>
+          <div className="hero-services" id="servicos" role="region" aria-label="Serviços da Idealize">
+            <div><Icon name="house" /><span>Compra e<br />venda</span></div>
+            <div><Icon name="key" /><span>Locação e<br />administração</span></div>
+            <div><Icon name="compass" /><span>Avaliação<br />imobiliária</span></div>
+            <div><Icon name="pin" /><span>Atendimento<br />local e regional</span></div>
+          </div>
         </div>
-      </section>
-
-      <section className="trust-strip" aria-label="Nossa atuação">
-        <div className="container trust-inner">
-          <span><Icon name="house" />Compra e venda de imóveis</span>
-          <span><Icon name="key" />Locação e administração</span>
-          <span><Icon name="compass" />Avaliação imobiliária</span>
-          <span className="trust-location"><Icon name="pin" />Buriti Alegre e região</span>
-        </div>
+        <svg className="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" fill="none" aria-hidden="true"><path d="M-10 55C240-45 485 105 820 57S1210-5 1450 40" stroke="currentColor" strokeWidth="2" /></svg>
       </section>
 
       <section className="properties-section section-space" id="imoveis" aria-labelledby="properties-title">
