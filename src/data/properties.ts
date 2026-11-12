@@ -5,6 +5,7 @@ import cityFacade from '../assets/casas/casa2/image copy 3.png'
 import cityOverview from '../assets/casas/casa2/image copy.png'
 import cityDriveway from '../assets/casas/casa2/image copy 4.png'
 import cityServiceArea from '../assets/casas/casa2/image copy 5.png'
+import cornerLot from '../assets/lote/image.png'
 
 export type PropertyCategory = 'house' | 'land'
 
@@ -20,7 +21,7 @@ export interface Property {
   title: string
   category: PropertyCategory
   purpose: 'sale' | 'rent'
-  price: number
+  price: number | null
   neighborhood: string
   city: string
   area: number
@@ -32,6 +33,7 @@ export interface Property {
   features: string[]
   images: PropertyImage[]
   imageSource?: { label: string; url: string }
+  disclaimer?: string
 }
 
 export const contact = {
@@ -40,9 +42,15 @@ export const contact = {
   instagram: 'https://www.instagram.com/idealizenegociosimobiliarios/',
 }
 
-export const formatPrice = (price: number) => new Intl.NumberFormat('pt-BR', {
-  style: 'currency', currency: 'BRL', maximumFractionDigits: 0,
-}).format(price)
+export function formatPrice(price: number | null) {
+  if (price === null) {
+    return 'Sob consulta'
+  }
+
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency', currency: 'BRL', maximumFractionDigits: 0,
+  }).format(price)
+}
 
 const houseImages: PropertyImage[] = [
   { src: houseFacade, alt: 'Fachada de casa térrea com portão de garagem e telhado cerâmico' },
@@ -64,7 +72,7 @@ const landImages: PropertyImage[] = [
   { src: '/images/lote-5.jpg', alt: 'Área verde e lago em um entorno residencial, imagem ilustrativa' },
 ]
 
-// Valores, localização e medidas são fictícios. As fotos das casas foram fornecidas para a demonstração.
+// Dados de exemplo, exceto as informações identificadas nas imagens fornecidas.
 export const properties: Property[] = [
   {
     id: 'casa-lago-das-brisas', reference: 'ID-001', title: 'Casa com cozinha planejada', category: 'house', purpose: 'sale',
@@ -79,11 +87,12 @@ export const properties: Property[] = [
     features: ['Quintal pavimentado', 'Varanda de entrada', 'Área de serviço', 'Tanque com bancada', 'Portão metálico', 'Telhado cerâmico'], images: cityImages,
   },
   {
-    id: 'lote-residencial-brisas', reference: 'ID-005', title: 'Lote Residencial Brisas', category: 'land', purpose: 'sale',
-    price: 185000, neighborhood: 'Lago das Brisas', city: 'Buriti Alegre, GO', area: 450, frontage: 15,
-    description: 'Um novo projeto começa com a escolha do lugar. Este lote demonstrativo representa uma oportunidade para planejar uma casa com espaço externo e ambientes do seu jeito. As imagens são ilustrativas e não representam um terreno anunciado em Buriti Alegre.',
-    features: ['Uso residencial', 'Área aberta', 'Espaço para jardim', 'Projeto personalizado'], images: [landImages[0], landImages[1], landImages[3]],
-    imageSource: { label: 'Premium Imóveis Gramado', url: 'https://www.premiumimoveisgramado.com.br/imovel/venda-terrenos-residenciais-em-gramado/terreno-com-mais-de-900-metros/29290' },
+    id: 'lote-residencial-brisas', reference: 'ID-005', title: 'Lote 1 — Esquina', category: 'land', purpose: 'sale',
+    price: null, neighborhood: '', city: '', area: 221.5,
+    description: 'Lote 1, de esquina, com área de 221,50 m² indicada na imagem. A foto mostra o terreno demarcado, com ruas pavimentadas no entorno. Consulte a Idealize para saber o valor, o endereço completo, as dimensões e as condições de venda.',
+    features: ['Lote de esquina', 'Área de 221,50 m²', 'Ruas pavimentadas no entorno'],
+    images: [{ src: cornerLot, alt: 'Lote 1 de esquina, demarcado na imagem com área de 221,50 m²' }],
+    disclaimer: 'Área informada na imagem fornecida. Valor, localização, dimensões e condições de venda sob consulta com a Idealize.',
   },
   {
     id: 'lote-jardim-dos-buritis', reference: 'ID-006', title: 'Lote Jardim dos Buritis', category: 'land', purpose: 'sale',

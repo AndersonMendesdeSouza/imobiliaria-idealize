@@ -9,6 +9,10 @@ export function PropertyDetails({ property }: { property: Property }) {
   const whatsappUrl = `${contact.whatsapp}?text=${encodeURIComponent(message)}`
   const isHouse = property.category === 'house'
   const isRent = property.purpose === 'rent'
+  const location = [property.neighborhood, property.city].filter(Boolean).join(' · ') || 'Localização sob consulta'
+  const formattedArea = property.area.toLocaleString('pt-BR', {
+    minimumFractionDigits: Number.isInteger(property.area) ? 0 : 2,
+  })
 
   return (
     <main id="conteudo" tabIndex={-1} className="details-page container">
@@ -29,7 +33,7 @@ export function PropertyDetails({ property }: { property: Property }) {
           <div className="detail-specs">
             <div>
               <Icon name="area" />
-              <strong>{property.area.toLocaleString('pt-BR')} m²</strong>
+              <strong>{formattedArea} m²</strong>
               <span>{isHouse ? 'Área construída' : 'Área do terreno'}</span>
             </div>
             {isHouse ? (
@@ -52,15 +56,17 @@ export function PropertyDetails({ property }: { property: Property }) {
               </>
             ) : (
               <>
-                <div>
-                  <Icon name="area" />
-                  <strong>{property.frontage} m</strong>
-                  <span>Frente do lote</span>
-                </div>
+                {property.frontage !== undefined && (
+                  <div>
+                    <Icon name="area" />
+                    <strong>{property.frontage} m</strong>
+                    <span>Frente do lote</span>
+                  </div>
+                )}
                 <div>
                   <Icon name="house" />
-                  <strong>Residencial</strong>
-                  <span>Tipo de uso</span>
+                  <strong>Lote</strong>
+                  <span>Tipo de imóvel</span>
                 </div>
               </>
             )}
@@ -88,8 +94,8 @@ export function PropertyDetails({ property }: { property: Property }) {
             <span className="location-box-icon"><Icon name="pin" /></span>
             <div>
               <h3>Conheça a região</h3>
-              <p>{property.neighborhood} · {property.city}</p>
-              <small>Localização de exemplo. Endereço completo sob consulta.</small>
+              <p>{location}</p>
+              <small>Consulte a equipe para saber o endereço completo.</small>
             </div>
           </section>
         </div>
@@ -97,17 +103,17 @@ export function PropertyDetails({ property }: { property: Property }) {
         <aside className="price-panel" aria-label="Resumo do imóvel e contato">
           <div className="detail-labels">
             <span className={`purpose-badge ${property.purpose}`}>{isRent ? 'Para alugar' : 'À venda'}</span>
-            <span className="detail-category">{isHouse ? 'Casa' : 'Lote residencial'}</span>
+            <span className="detail-category">{isHouse ? 'Casa' : 'Lote'}</span>
           </div>
           <div className="detail-heading">
             <h1>{property.title}</h1>
-            <p className="detail-location"><Icon name="pin" />{property.neighborhood} · {property.city}</p>
+            <p className="detail-location"><Icon name="pin" />{location}</p>
             <span className="reference">Referência {property.reference}</span>
           </div>
           <span className="price-label">{isRent ? 'Aluguel mensal' : 'Valor do imóvel'}</span>
           <div className="detail-price">
             {formatPrice(property.price)}
-            {isRent && <small>/mês</small>}
+            {isRent && property.price !== null && <small>/mês</small>}
           </div>
           <div className="price-information">
             <Icon name="house" />
@@ -127,7 +133,7 @@ export function PropertyDetails({ property }: { property: Property }) {
             <a href={`tel:+55${contact.phone.replace(/\D/g, '')}`}>{contact.phone}</a>
           </div>
           <p className="demo-disclaimer">
-            Anúncio demonstrativo. Preço, localização e características são fictícios.
+            {property.disclaimer ?? 'Anúncio demonstrativo. Preço, localização e características são fictícios.'}
           </p>
         </aside>
       </div>
