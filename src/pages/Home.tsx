@@ -32,7 +32,7 @@ export function Home({ filter, onFilterChange }: HomeProps) {
               <a className="button hero-contact-link" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com um corretor</a>
             </div>
           </div>
-          <div className="hero-services" id="servicos" role="region" aria-label="Serviços da Idealize">
+          <div className="hero-services" id="servicos" role="region" aria-label="Serviços da imobiliária">
             <div><Icon name="house" /><span>Compra e<br />venda</span></div>
             <div><Icon name="key" /><span>Locação e<br />administração</span></div>
             <div><Icon name="compass" /><span>Avaliação<br />imobiliária</span></div>
@@ -74,10 +74,10 @@ export function Home({ filter, onFilterChange }: HomeProps) {
         <div className="container about-grid">
           <div className="about-visual"><img src={aboutImage} alt="Vista aérea de casa com telhado cerâmico e quintal pavimentado" loading="lazy" /><div className="about-image-note"><Icon name="house" /><span>Mais que um imóvel.<br /><strong>Um lugar para os seus planos.</strong></span></div></div>
           <div className="about-copy">
-            <span className="eyebrow">Conheça a Idealize</span>
+            <span className="eyebrow">Conheça a imobiliária</span>
             <h2 id="about-title">Perto de você.<br />Do começo à <em>chave.</em></h2>
             <p>Escolher um imóvel é uma decisão importante. Ter alguém que conhece a região e entende o que você procura faz toda a diferença.</p>
-            <p>A Idealize Negócios Imobiliários atua em Buriti Alegre, com compra, venda, locação e administração de imóveis. Uma conversa simples pode ser o começo do seu próximo plano.</p>
+            <p>Nossa equipe atua em Buriti Alegre, com compra, venda, locação e administração de imóveis. Uma conversa simples pode ser o começo do seu próximo plano.</p>
             <div className="about-services">
               <div><Icon name="shield" /><span>Clareza em cada etapa</span></div>
               <div><Icon name="pin" /><span>Conhecimento da nossa região</span></div>
@@ -90,8 +90,8 @@ export function Home({ filter, onFilterChange }: HomeProps) {
 
       <section className="contact-section" id="contato" aria-labelledby="contact-title">
         <div className="container contact-inner">
-          <div><span className="eyebrow">Vamos dar o próximo passo?</span><h2 id="contact-title">Você conta os planos.<br /><em>A gente encontra o lugar.</em></h2><p>Fale com a Idealize e descubra as possibilidades para você.</p></div>
-          <a className="button button-primary" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com a Idealize<Icon name="arrow" /></a>
+          <div><span className="eyebrow">Vamos dar o próximo passo?</span><h2 id="contact-title">Você conta os planos.<br /><em>A gente encontra o lugar.</em></h2><p>Fale com a nossa equipe e descubra as possibilidades para você.</p></div>
+          <a className="button button-primary" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale conosco<Icon name="arrow" /></a>
         </div>
       </section>
     </main>

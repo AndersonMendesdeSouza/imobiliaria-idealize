@@ -18,7 +18,7 @@ export function PropertyDetails({ property }: { property: Property }) {
     <main id="conteudo" tabIndex={-1} className="details-page container">
       <nav className="detail-breadcrumb" aria-label="Localização na página">
         <a className="detail-back" href="#imoveis"><Icon name="arrow" className="rotate" />Voltar aos imóveis</a>
-        <span>Idealize <span aria-hidden="true">/</span> {isHouse ? 'Casas' : 'Lotes'} <span aria-hidden="true">/</span> {property.reference}</span>
+        <span>Imobiliária <span aria-hidden="true">/</span> {isHouse ? 'Casas' : 'Lotes'} <span aria-hidden="true">/</span> {property.reference}</span>
       </nav>
 
       <div className="detail-content">

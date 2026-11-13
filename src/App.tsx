@@ -20,8 +20,8 @@ function App() {
 
   useEffect(() => {
     document.title = property
-      ? `${property.title} | Idealize Negócios Imobiliários`
-      : 'Idealize | Seu próximo imóvel em Buriti Alegre'
+      ? `${property.title} | Imobiliária`
+      : 'Imobiliária | Seu próximo imóvel em Buriti Alegre'
 
     const frame = window.requestAnimationFrame(() => {
       if (hash && !hash.startsWith('#/')) {

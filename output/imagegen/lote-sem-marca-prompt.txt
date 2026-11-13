@@ -1,0 +1,9 @@
+Mode: built-in image_gen edit.
+Source: src/assets/lote/image.png
+Output: src/assets/lote/lote-sem-marca.png
+
+Use case: precise-object-edit.
+Asset type: existing real-estate listing photograph for a generic Imobiliária website.
+Input image: edit target, not a style reference.
+Primary request: remove ONLY the partially clipped black-and-orange Idealize real-estate company logo and all its wording in the bottom-left corner, naturally reconstructing the road/dirt texture underneath. Keep the rest of the photograph unchanged.
+Invariants: preserve the exact lot, buildings, streets, perspective, crop, sky, vegetation, all physical features, white lot boundary and all corner markers, white arrow, the label 'LOTE 1', and the exact measurement '221,50 m²'. Preserve the black top strip and small carousel dots. Do not change the land or the information being sold. Match existing low-resolution photographic texture in the repaired bottom-left area. No replacement logo, no added text, no new objects, no beautification, no reframing. The only edit is removal of the company branding at bottom-left.

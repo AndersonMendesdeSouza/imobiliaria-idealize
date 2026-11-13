@@ -5,7 +5,7 @@ import cityFacade from '../assets/casas/casa2/image copy 3.png'
 import cityOverview from '../assets/casas/casa2/image copy.png'
 import cityDriveway from '../assets/casas/casa2/image copy 4.png'
 import cityServiceArea from '../assets/casas/casa2/image copy 5.png'
-import cornerLot from '../assets/lote/image.png'
+import cornerLot from '../assets/lote/lote-sem-marca.png'
 
 export type PropertyCategory = 'house' | 'land'
 
@@ -39,7 +39,6 @@ export interface Property {
 export const contact = {
   whatsapp: 'https://wa.me/556434441126',
   phone: '(64) 3444-1126',
-  instagram: 'https://www.instagram.com/idealizenegociosimobiliarios/',
 }
 
 export function formatPrice(price: number | null) {
@@ -89,10 +88,10 @@ export const properties: Property[] = [
   {
     id: 'lote-residencial-brisas', reference: 'ID-005', title: 'Lote 1 — Esquina', category: 'land', purpose: 'sale',
     price: null, neighborhood: '', city: '', area: 221.5,
-    description: 'Lote 1, de esquina, com área de 221,50 m² indicada na imagem. A foto mostra o terreno demarcado, com ruas pavimentadas no entorno. Consulte a Idealize para saber o valor, o endereço completo, as dimensões e as condições de venda.',
+    description: 'Lote 1, de esquina, com área de 221,50 m² indicada na imagem. A foto mostra o terreno demarcado, com ruas pavimentadas no entorno. Consulte a nossa equipe para saber o valor, o endereço completo, as dimensões e as condições de venda.',
     features: ['Lote de esquina', 'Área de 221,50 m²', 'Ruas pavimentadas no entorno'],
     images: [{ src: cornerLot, alt: 'Lote 1 de esquina, demarcado na imagem com área de 221,50 m²' }],
-    disclaimer: 'Área informada na imagem fornecida. Valor, localização, dimensões e condições de venda sob consulta com a Idealize.',
+    disclaimer: 'Área informada na imagem fornecida. Valor, localização, dimensões e condições de venda sob consulta com a nossa equipe.',
   },
   {
     id: 'lote-jardim-dos-buritis', reference: 'ID-006', title: 'Lote Jardim dos Buritis', category: 'land', purpose: 'sale',

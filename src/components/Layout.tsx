@@ -29,10 +29,10 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container footer-top">
         <div><Brand /><p>Seu melhor negócio começa<br />com uma boa escolha.</p></div>
-        <div className="footer-links"><span>Explore</span><a href="#imoveis">Encontre seu imóvel</a><a href="#sobre">Conheça a Idealize</a><a href="#contato">Entre em contato</a></div>
-        <div className="footer-links"><span>Estamos por perto</span><p>Centro · Buriti Alegre, GO</p><a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="phone" />{contact.phone}</a><a href={contact.instagram} target="_blank" rel="noreferrer"><Icon name="instagram" />Idealize no Instagram</a></div>
+        <div className="footer-links"><span>Explore</span><a href="#imoveis">Encontre seu imóvel</a><a href="#sobre">Conheça a imobiliária</a><a href="#contato">Entre em contato</a></div>
+        <div className="footer-links"><span>Estamos por perto</span><p>Centro · Buriti Alegre, GO</p><a href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="phone" />{contact.phone}</a></div>
       </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Idealize Negócios Imobiliários.</span><span>Proposta demonstrativa · Imóveis e valores de exemplo.</span></div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} Imobiliária.</span><span>Proposta demonstrativa · Imóveis e valores de exemplo.</span></div>
     </footer>
   )
 }
