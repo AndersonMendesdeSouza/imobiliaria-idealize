@@ -1,6 +1,6 @@
 import { Icon } from '../components/Icon'
 import { PropertyCarousel } from '../components/PropertyCarousel'
-import { contact, properties } from '../data/properties'
+import { properties } from '../data/properties'
 import type { PropertyCategory } from '../data/properties'
 import heroImage from '../assets/hero-idealize.jpg'
 import aboutImage from '../assets/casas/casa2/image copy.png'
@@ -29,7 +29,7 @@ export function Home({ filter, onFilterChange }: HomeProps) {
             <p>Encontre o imóvel ideal para viver,<br className="hero-description-break" /> investir e realizar seus sonhos.</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#imoveis"><Icon name="house" />Explorar imóveis<Icon name="arrow" /></a>
-              <a className="button hero-contact-link" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale com um corretor</a>
+              <a className="button hero-contact-link" href="#contato"><Icon name="phone" />Fale com um corretor</a>
             </div>
           </div>
           <div className="hero-services" id="servicos" role="region" aria-label="Serviços da imobiliária">
@@ -83,15 +83,14 @@ export function Home({ filter, onFilterChange }: HomeProps) {
               <div><Icon name="pin" /><span>Conhecimento da nossa região</span></div>
               <div><Icon name="key" /><span>Atendimento próximo de você</span></div>
             </div>
-            <a className="text-link" href={contact.whatsapp} target="_blank" rel="noreferrer">Converse com a nossa equipe<Icon name="arrow" /></a>
+            <a className="text-link" href="#contato">Converse com a nossa equipe<Icon name="arrow" /></a>
           </div>
         </div>
       </section>
 
       <section className="contact-section" id="contato" aria-labelledby="contact-title">
         <div className="container contact-inner">
-          <div><span className="eyebrow">Vamos dar o próximo passo?</span><h2 id="contact-title">Você conta os planos.<br /><em>A gente encontra o lugar.</em></h2><p>Fale com a nossa equipe e descubra as possibilidades para você.</p></div>
-          <a className="button button-primary" href={contact.whatsapp} target="_blank" rel="noreferrer"><Icon name="whatsapp" />Fale conosco<Icon name="arrow" /></a>
+          <div><span className="eyebrow">Vamos dar o próximo passo?</span><h2 id="contact-title">Você conta os planos.<br /><em>A gente encontra o lugar.</em></h2><p>Canais de atendimento em breve.</p></div>
         </div>
       </section>
     </main>

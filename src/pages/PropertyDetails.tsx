@@ -1,12 +1,10 @@
 import { PhotoGallery } from '../components/PhotoGallery'
 import { Icon } from '../components/Icon'
 import { Brand } from '../components/Brand'
-import { contact, formatPrice } from '../data/properties'
+import { formatPrice } from '../data/properties'
 import type { Property } from '../data/properties'
 
 export function PropertyDetails({ property }: { property: Property }) {
-  const message = `Olá! Tenho interesse no imóvel ${property.title}, referência ${property.reference}. Gostaria de mais informações.`
-  const whatsappUrl = `${contact.whatsapp}?text=${encodeURIComponent(message)}`
   const isHouse = property.category === 'house'
   const isRent = property.purpose === 'rent'
   const location = [property.neighborhood, property.city].filter(Boolean).join(' · ') || 'Localização sob consulta'
@@ -119,18 +117,17 @@ export function PropertyDetails({ property }: { property: Property }) {
             <Icon name="house" />
             <span>{isRent ? 'Consulte as condições de locação' : 'Consulte as condições de compra'}</span>
           </div>
-          <a className="button button-primary" href={whatsappUrl} target="_blank" rel="noreferrer">
-            <Icon name="whatsapp" />
+          <a className="button button-primary" href="#contato">
+            <Icon name="phone" />
             Tenho interesse
             <Icon name="arrow" />
           </a>
           <p className="contact-hint">
-            A mensagem já vai com o nome do imóvel e a referência <strong>{property.reference}</strong>.
+            Canais de atendimento em breve.
           </p>
           <div className="advisor">
             <Brand />
             <span>Atendimento em Buriti Alegre e região</span>
-            <a href={`tel:+55${contact.phone.replace(/\D/g, '')}`}>{contact.phone}</a>
           </div>
           <p className="demo-disclaimer">
             {property.disclaimer ?? 'Anúncio demonstrativo. Preço, localização e características são fictícios.'}

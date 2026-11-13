@@ -36,11 +36,6 @@ export interface Property {
   disclaimer?: string
 }
 
-export const contact = {
-  whatsapp: 'https://wa.me/556434441126',
-  phone: '(64) 3444-1126',
-}
-
 export function formatPrice(price: number | null) {
   if (price === null) {
     return 'Sob consulta'
